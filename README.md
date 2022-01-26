@@ -50,3 +50,5 @@ El servidor tiene la capacidad de generar de manera aleatoria pacientes, obtenie
 > Se requiere el hospitalId para asignar el paciente generado a un hospital
 
 >la Respuesta retorna en la propiedad **patient** el paciente generado y guradado en la tabla "patient" y en la propiedad **hospitalRecord** los datos del paciente asigando al hospital con su prioridad y riesgo almacenados en la tabla hospitalPatient.
+
+
