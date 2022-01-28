@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+:root {
+  --base-spacing: 12px
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  background-color: #d3d3d3;
+}
+
 .App {
   text-align: center;
+  padding: var(--base-spacing);
 }
 
 .App-logo {
