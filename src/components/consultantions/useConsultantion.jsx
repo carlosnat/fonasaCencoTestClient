@@ -6,6 +6,13 @@ const useConsultatios = (hospitalId) => {
     const [free, setFree] = useState(false)
 
     useEffect(() => {
+        async function fetchConsultations() {
+            if (hospitalId) {
+                const { data } = await getConsultationByHospitalId(hospitalId)
+                const sorted = data.sort(sortFunction)
+                setConsultations(sorted)
+            }
+        }
         fetchConsultations()
     }, [free])
 
@@ -14,14 +21,6 @@ const useConsultatios = (hospitalId) => {
         if (a.type > b.type) return 1;
         return 0
     }
-
-    const fetchConsultations = useCallback(async () => {
-        if (hospitalId) {
-            const { data } = await getConsultationByHospitalId(hospitalId)
-            const sorted = data.sort(sortFunction)
-            setConsultations(sorted)
-        }
-    }, [])
 
     const freeSpots = async () => {
         await freeConsultations()

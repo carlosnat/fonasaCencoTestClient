@@ -6,21 +6,20 @@ const usePatients = (status) => {
     const [free, setFree] = useState(false)
 
     useEffect(() => {
+        async function fetchPatients() {
+            if (status) {
+                const { data } = await getPatientsByStatus(1, status)
+                setPatients(data)
+            }
+        }
         fetchPatients()
     }, [free])
 
-    const fetchPatients = useCallback(async () => {
-        if(status) {
-            const { data } = await getPatientsByStatus(1, status)
-            setPatients(data)
-        }
-    }, [])
-
-    const reloadPatients = () => { 
+    const reloadPatients = () => {
         setFree(!free)
     }
 
-    return {patients, setPatients, attendPatients, reloadPatients}
+    return { patients, setPatients, attendPatients, reloadPatients }
 }
 
 export default usePatients
