@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { freeConsultations, getConsultationByHospitalId } from '../../providers/consultationService'
 
 const useConsultatios = (hospitalId) => {
@@ -15,13 +15,13 @@ const useConsultatios = (hospitalId) => {
         return 0
     }
 
-    const fetchConsultations = async () => {
+    const fetchConsultations = useCallback(async () => {
         if (hospitalId) {
             const { data } = await getConsultationByHospitalId(hospitalId)
             const sorted = data.sort(sortFunction)
             setConsultations(sorted)
         }
-    }
+    }, [])
 
     const freeSpots = async () => {
         await freeConsultations()

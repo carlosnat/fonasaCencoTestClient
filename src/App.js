@@ -42,7 +42,6 @@ function App() {
     }, 100)
   }
 
-
   return (
     <div className="App">
       <Hospital hospital={hospital} onGenerate={generatePatient} />
