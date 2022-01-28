@@ -1,54 +1,70 @@
-# Fonasa hospitales - servidor
+# Getting Started with Create React App
 
-Hola, bienvenido.
-En este repositorio conseguiras el código correspondiente a una API REST que cumple con los requisitos solicitados por la prueba técnica enviada.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Ejecutar
-### Requisitos
+## Available Scripts
 
- - NodeJS se recomienda version LTS 16
- - Servidor de postgresql 
-	 - puede utilizar la imagen de docker: https://hub.docker.com/_/postgres
+In the project directory, you can run:
 
-### Ejecución
+### `yarn start`
 
- 1. Clonar el repositorio
- 2. Ingresar al directorio y ejecutar comando `npm install`
- 3. Construir nuevo archivo `.env` en la raiz del proyecto, siguiendo el ejemplo del archivo `example.env`.
- 4. Ejecutar comando `npm run serve`. Verifica en la consola que el sistema construya la base de datos definidas. Se recomienda utilizar dBeaver https://dbeaver.io/ para explorar la base de datos.
- 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
- 
-## Para iniciar
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-> Se recomienda utilizar Postman https://www.postman.com/downloads/ para explorar los endpoints de la API, para ello importar el archivo: **fonasaHospitals.postman_collection.json** ubicado en la raiz del proyecto.
+### `yarn test`
 
-> Si no se define un valor para la variable PORT el servidor iniciara en el puerto 3000 por defecto. Quedando el basepath como: http://localhost:3000
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn build`
 
-### Crear un hospital
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Es necesario crear un hospital en nuestra base de datos, ya que por defecto la tabla esta vacia. 
-Utilizar endpoint hospital -> create
-|Nombre          |Endpoint  |Method                          |Body Ejemplo                         |
-|----------------|-|-------------------------------|-----------------------------|
-|createHospital  | `/hospital` |`POST`                         | <pre>{<br> "name": "test", <br> "address": "test" <br>}</pre>
-    
-### Crear consultas
-Es necesario crear consultas en nuestra base de datos, ya que por defecto la tabla esta vacia. 
-Utilizar endpoint consultant -> create
-|Nombre                |Endpoint  |Method                          |Body Ejemplo                         |
-|----------------|-|-------------------------------|-----------------------------|
-|createConsultation  | `/consultation` |`POST`                         | <pre>{<br> "specialistName": "test", <br> "type": "urgency - general - pediatry" <br> "hospitalId": "id Hospital created"<br>}</pre>
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Funcionalidades
-### Generar paciente
-El servidor tiene la capacidad de generar de manera aleatoria pacientes, obteniendo datos de la API: https://randomuser.me/ para ello debemos consumir el endpoint patient -> generate
-|Nombre          |Endpoint              |Method |Qeury Param | Respuesta esquema                  
-|----------------|----------------------|-------|------------|-|
-|patientGenerate  | `/patient/generate` |`GET`  | `hospitalId`  | <pre>{<br> "patient": {} <br> "hospitalRecord": {} <br>}</pre>
-> Se requiere el hospitalId para asignar el paciente generado a un hospital
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
->la Respuesta retorna en la propiedad **patient** el paciente generado y guradado en la tabla "patient" y en la propiedad **hospitalRecord** los datos del paciente asigando al hospital con su prioridad y riesgo almacenados en la tabla hospitalPatient.
+### `yarn eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
