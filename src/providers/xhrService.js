@@ -1,7 +1,7 @@
 import * as axios from 'axios'
 
 const xhrService = axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL: process.env.API_URL || 'http://localhost:3000/',
     timeout: 1000,
 });
 
