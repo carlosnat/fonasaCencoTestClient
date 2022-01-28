@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { attendPatients, getPatientsByStatus } from '../../providers/patientService'
 
 const usePatients = (status) => {
@@ -13,7 +13,7 @@ const usePatients = (status) => {
             }
         }
         fetchPatients()
-    }, [free])
+    }, [free, status])
 
     const reloadPatients = () => {
         setFree(!free)

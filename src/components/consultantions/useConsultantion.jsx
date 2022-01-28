@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { freeConsultations, getConsultationByHospitalId } from '../../providers/consultationService'
 
 const useConsultatios = (hospitalId) => {
@@ -14,7 +14,7 @@ const useConsultatios = (hospitalId) => {
             }
         }
         fetchConsultations()
-    }, [free])
+    }, [free, hospitalId])
 
     const sortFunction = (a, b) => {
         if (a.type < b.type) return -1;
