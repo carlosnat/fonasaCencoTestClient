@@ -7,11 +7,8 @@ import useHospital from './components/hospital/useHospital';
 import { generatePatientByHospitalId } from './providers/patientService';
 import usePatients from './components/patients/usePatients';
 import TopReport from './components/report/topReport';
-import { useState } from 'react';
 
 function App() {
-  const [showReports, setShowReports] = useState(false)
-
   const { consultations, reloadConsultations, freeSpots } = useConsultatios(1)
   const { hospital } = useHospital()
   const { patients: pendingPatients, reloadPatients: reloadPending, attendPatients } = usePatients('pending')
